@@ -15,13 +15,16 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/daftar">Daftar</a>
+          {{-- <li class="nav-item">
+            <a class="nav-link" href="/kuesioneruser">Kuesioner Pengguna</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/kuesionerpakar">Kuesioner Pakar</a>
+          </li> --}}
           <li class="nav-item">
             <a class="nav-link" href="/kriteria">Kriteria</a>
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a class="nav-link" href="/skala">Skala</a>
           </li>
           <li class="nav-item">
@@ -29,9 +32,12 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/penilaian">Penilaian</a>
-          </li>
+          </li> --}}
           <li class="nav-item">
             <a class="nav-link" href="/alternatif">Alternatif</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/perhitungan">Perhitungan</a>
           </li>
         </ul>
       </div>

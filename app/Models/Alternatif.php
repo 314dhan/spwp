@@ -5,17 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Kriteria extends Model
+class Alternatif extends Model
 {
     use HasFactory;
-    protected $table = "kriteria";
+    protected $table = "alternatif";
     public $timestamps = false;
 
-    protected $primaryKey = 'id_kriteria';
+    protected $primaryKey = 'id_alternatif';
 
     protected $fillable = [
-        'kriteria',
-        'kepentingan',
-        'cost_benefit',
+        'alternatif',
+        'k1',
+        'k2',
+        'k3',
+        'k4',
+        'k5',
     ];
 }
+

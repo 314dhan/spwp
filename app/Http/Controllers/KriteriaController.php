@@ -1,13 +1,11 @@
 <?php
 
-// app/Http/Controllers/KriteriaController.php
-
 namespace App\Http\Controllers;
 
 use App\Models\Kriteria;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 class KriteriaController extends Controller
 {
@@ -19,32 +17,44 @@ class KriteriaController extends Controller
 
     public function create(): View
     {
-        return view('kriteria.create');
+        return view('kriterias.create');
     }
 
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'nama_kriteria' => 'required|string'
+            'kriteria' => 'required|string',
+            'kepentingan' => 'required|numeric|min:1|max:5',
+            'cost_benefit' => 'required|string|in:cost,benefit',
         ]);
 
-        Kriteria::create($request->all());
+        Kriteria::create([
+            'kriteria' => $request->kriteria,
+            'kepentingan' => $request->kepentingan,
+            'cost_benefit' => $request->cost_benefit,
+        ]);
 
         return redirect()->route('kriteria.index')->with('success', 'Kriteria created successfully.');
     }
 
     public function edit(Kriteria $kriteria): View
     {
-        return view('kriteria.edit', compact('kriteria'));
+        return view('kriterias.edit', compact('kriteria'));
     }
 
     public function update(Request $request, Kriteria $kriteria): RedirectResponse
     {
         $request->validate([
-            'nama_kriteria' => 'required|string',
+            'kriteria' => 'required|string',
+            'kepentingan' => 'required|numeric|min:1|max:5',
+            'cost_benefit' => 'required|string|in:cost,benefit',
         ]);
 
-        $kriteria->update($request->all());
+        $kriteria->update([
+            'kriteria' => $request->kriteria,
+            'kepentingan' => $request->kepentingan,
+            'cost_benefit' => $request->cost_benefit,
+        ]);
 
         return redirect()->route('kriteria.index')->with('success', 'Kriteria updated successfully.');
     }
@@ -56,4 +66,3 @@ class KriteriaController extends Controller
         return redirect()->route('kriteria.index')->with('success', 'Kriteria deleted successfully.');
     }
 }
-
