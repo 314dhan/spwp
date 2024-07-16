@@ -56,7 +56,13 @@ class PerhitunganController extends Controller
             ];
         })->sortByDesc('nilaiV')->values();
 
-        return view('perhitungan', compact('alternatifs', 'kriterias', 'nilaiS', 'nilaiV', 'ranking', 'bobotKepentingan'));
+        // Temukan nilai V terbesar
+        $maxV = $nilaiV->max();
+        $maxIndex = $nilaiV->search($maxV);
+        $maxAlternatif = $alternatifs[$maxIndex]->alternatif;
+
+
+        return view('perhitungan', compact('alternatifs', 'kriterias', 'nilaiS', 'nilaiV', 'maxV', 'maxAlternatif', 'ranking','bobotKepentingan'));
     }
 
 

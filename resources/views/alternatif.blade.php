@@ -19,9 +19,9 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($alternatifs as $alternatif)
+            @foreach ($alternatifs as $key => $alternatif)
             <tr>
-                <td>{{ $alternatif->id_alternatif }}</td>
+                <td>A{{ $key + 1 }}</td>
                 <td>{{ $alternatif->alternatif }}</td>
                 <td>{{ $alternatif->k1 }}</td>
                 <td>{{ $alternatif->k2 }}</td>

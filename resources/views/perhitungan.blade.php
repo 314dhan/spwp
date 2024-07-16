@@ -120,7 +120,7 @@
             @endforeach
             <tr>
                 <td>Total</td>
-                <td>{{ number_format($nilaiS->sum(), 5) }}</td>
+                <td>{{ number_format($nilaiS->sum(), 4) }}</td>
             </tr>
         </tbody>
     </table>
@@ -151,13 +151,20 @@
 </div>
 
 <div class="container">
+    <h3>Kesimpulan</h3>
+    <p>
+        Dari tabel tersebut dapat disimpulkan bahwa {{ $maxAlternatif }} mempunyai hasil paling tinggi, yaitu {{ number_format($maxV, 4) }}.
+    </p>
+</div>
+
+<div class="container">
     <h3>Perangkingan Nilai V</h3>
     <ul>
         @foreach ($ranking as $rank => $item)
             @if ($rank == 0)
-                <li>{{ $item['alternatif'] }} mempunyai hasil paling tinggi (rank 1), yaitu {{ number_format($item['nilaiV'], 6) }}</li>
+                <li>{{ $item['alternatif'] }} mempunyai hasil paling tinggi (rank 1), yaitu {{ number_format($item['nilaiV'], 4) }}</li>
             @else
-                <li>{{ $item['alternatif'] }} dengan nilai {{ number_format($item['nilaiV'], 6) }}</li>
+                <li>{{ $item['alternatif'] }} dengan nilai {{ number_format($item['nilaiV'], 4) }}</li>
             @endif
         @endforeach
     </ul>

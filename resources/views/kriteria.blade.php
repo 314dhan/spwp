@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <h1>Kriteria</h1>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">
+    {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">
         Create Kriteria
-    </button>
+    </button> --}}
     <table class="table table-bordered mt-3">
         <thead>
             <tr>
@@ -27,11 +27,11 @@
                     <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal{{ $kriteria->id_kriteria }}">
                         Edit
                     </button>
-                    <form action="{{ route('kriteria.destroy', $kriteria->id_kriteria) }}" method="POST" style="display:inline;">
+                    {{-- <form action="{{ route('kriteria.destroy', $kriteria->id_kriteria) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
+                    </form> --}}
                 </td>
             </tr>
             <!-- Modal Edit -->
