@@ -43,13 +43,22 @@ class PerhitunganController extends Controller
         // Hitung total nilai S
         $totalNilaiS = $nilaiS->sum();
 
-        // Hitung nilai V untuk setiap alternatif
-        $nilaiV = $nilaiS->map(function ($s) use ($totalNilaiS) {
-            return $s / $totalNilaiS;
+        // Hitung nilai V
+        $nilaiV = $nilaiS->map(function ($nilai) use ($totalNilaiS) {
+            return $nilai / $totalNilaiS;
         });
 
-        return view('perhitungan', compact('alternatifs', 'kriterias', 'nilaiS', 'nilaiV', 'bobotKepentingan'));
+        // Gabungkan nilai V dengan alternatif dan urutkan berdasarkan nilai V dari yang tertinggi
+        $ranking = $alternatifs->map(function ($alternatif, $index) use ($nilaiV) {
+            return [
+                'alternatif' => $alternatif->alternatif,
+                'nilaiV' => $nilaiV[$index]
+            ];
+        })->sortByDesc('nilaiV')->values();
+
+        return view('perhitungan', compact('alternatifs', 'kriterias', 'nilaiS', 'nilaiV', 'ranking', 'bobotKepentingan'));
     }
+
 
     /**
      * Show the form for creating a new resource.

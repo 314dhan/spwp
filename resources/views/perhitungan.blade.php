@@ -25,40 +25,6 @@
 </div>
 
 <div class="container">
-    <h3>Perhitungan Pangkat</h3>
-    <table class="table table-bordered mt-3">
-        <thead>
-            <tr>
-                <th></th>
-                @foreach ($kriterias as $index => $kriteria)
-                <th>K{{ $index + 1 }}</th>
-                @endforeach
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Cost/Benefit</td>
-                @foreach ($kriterias as $kriteria)
-                <td>{{ $kriteria->cost_benefit }}</td>
-                @endforeach
-            </tr>
-            <tr>
-                <td>Pangkat</td>
-                @foreach ($kriterias as $index => $kriteria)
-                @php
-                    $pangkat = $bobotKepentingan[$index];
-                    if ($kriteria->cost_benefit == 'cost') {
-                        $pangkat = -$pangkat;
-                    }
-                @endphp
-                <td>{{ number_format($pangkat, 2) }}</td>
-                @endforeach
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-<div class="container">
     <h3>Perhitungan Bobot Kepentingan</h3>
     <table class="table table-bordered mt-3">
         <thead>
@@ -97,6 +63,40 @@
                 <td>{{ number_format($bobot, 2) }}</td>
                 @endforeach
                 <td>{{ number_format(array_sum($bobotKepentingan), 2) }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="container">
+    <h3>Perhitungan Pangkat</h3>
+    <table class="table table-bordered mt-3">
+        <thead>
+            <tr>
+                <th></th>
+                @foreach ($kriterias as $index => $kriteria)
+                <th>K{{ $index + 1 }}</th>
+                @endforeach
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Cost/Benefit</td>
+                @foreach ($kriterias as $kriteria)
+                <td>{{ $kriteria->cost_benefit }}</td>
+                @endforeach
+            </tr>
+            <tr>
+                <td>Pangkat</td>
+                @foreach ($kriterias as $index => $kriteria)
+                @php
+                    $pangkat = $bobotKepentingan[$index];
+                    if ($kriteria->cost_benefit == 'cost') {
+                        $pangkat = -$pangkat;
+                    }
+                @endphp
+                <td>{{ number_format($pangkat, 2) }}</td>
+                @endforeach
             </tr>
         </tbody>
     </table>
@@ -150,15 +150,15 @@
     </table>
 </div>
 
-{{-- <div class="container mt-5">
+<div class="container">
     <h3>Perangkingan Nilai V</h3>
     <ul>
-        @php
-            // Urutkan nilai V dari yang tertinggi ke terendah
-            $sortedNilaiV = $nilaiV->sortDesc();
-        @endphp
-        @foreach ($sortedNilaiV as $rank => $v)
-        <li>{{ $alternatifs[$rank]->alternatif }} mempunyai hasil paling tinggi (rank {{ $rank + 1 }}), yaitu {{ number_format($v, 6) }}</li>
+        @foreach ($ranking as $rank => $item)
+            @if ($rank == 0)
+                <li>{{ $item['alternatif'] }} mempunyai hasil paling tinggi (rank 1), yaitu {{ number_format($item['nilaiV'], 6) }}</li>
+            @else
+                <li>{{ $item['alternatif'] }} dengan nilai {{ number_format($item['nilaiV'], 6) }}</li>
+            @endif
         @endforeach
     </ul>
-</div> --}}
+</div>

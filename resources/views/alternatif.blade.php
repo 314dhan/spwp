@@ -57,7 +57,7 @@
                                     <input type="text" class="form-control" id="edit_nama_alternatif{{ $alternatif->id_alternatif }}" name="alternatif" value="{{ $alternatif->alternatif }}">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="edit_k1{{ $alternatif->id_alternatif }}" class="form-label">K1</label>
+                                    <label for="edit_k1{{ $alternatif->id_alternatif }}" class="form-label">K1: Seberapa baik produk ini dalam mendeteksi dan mencegah serangan keamanan yang kompleks dan baru?</label>
                                     <select class="form-select" id="edit_k1{{ $alternatif->id_alternatif }}" name="k1" required>
                                         @for ($i = 1; $i <= 5; $i++)
                                             <option value="{{ $i }}" @if ($i == $alternatif->k1) selected @endif>{{ $i }}</option>
@@ -65,7 +65,7 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="edit_k2{{ $alternatif->id_alternatif }}" class="form-label">K2</label>
+                                    <label for="edit_k2{{ $alternatif->id_alternatif }}" class="form-label">K2: Bagaimana perbandingan biaya produk ini dengan manfaat dan perlindungan keamanan yang diberikan?</label>
                                     <select class="form-select" id="edit_k2{{ $alternatif->id_alternatif }}" name="k2" required>
                                         @for ($i = 1; $i <= 5; $i++)
                                             <option value="{{ $i }}" @if ($i == $alternatif->k2) selected @endif>{{ $i }}</option>
@@ -73,7 +73,7 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="edit_k3{{ $alternatif->id_alternatif }}" class="form-label">K3</label>
+                                    <label for="edit_k3{{ $alternatif->id_alternatif }}" class="form-label">K3: Seberapa intuitif antarmuka pengguna produk ini bagi administrator yang tidak memiliki latar belakang teknis yang mendalam?</label>
                                     <select class="form-select" id="edit_k3{{ $alternatif->id_alternatif }}" name="k3" required>
                                         @for ($i = 1; $i <= 5; $i++)
                                             <option value="{{ $i }}" @if ($i == $alternatif->k3) selected @endif>{{ $i }}</option>
@@ -81,7 +81,7 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="edit_k4{{ $alternatif->id_alternatif }}" class="form-label">K4</label>
+                                    <label for="edit_k4{{ $alternatif->id_alternatif }}" class="form-label">K4: Seberapa baik dukungan teknis yang diberikan oleh penyedia produk dalam menanggapi masalah teknis dan pemeliharaan?</label>
                                     <select class="form-select" id="edit_k4{{ $alternatif->id_alternatif }}" name="k4" required>
                                         @for ($i = 1; $i <= 5; $i++)
                                             <option value="{{ $i }}" @if ($i == $alternatif->k4) selected @endif>{{ $i }}</option>
@@ -89,7 +89,7 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="edit_k5{{ $alternatif->id_alternatif }}" class="form-label">K5</label>
+                                    <label for="edit_k5{{ $alternatif->id_alternatif }}" class="form-label">K5: Sejauh mana produk ini dapat berintegrasi dengan infrastruktur teknologi yang sudah ada tanpa mengalami konflik atau gangguan?</label>
                                     <select class="form-select" id="edit_k5{{ $alternatif->id_alternatif }}" name="k5" required>
                                         @for ($i = 1; $i <= 5; $i++)
                                             <option value="{{ $i }}" @if ($i == $alternatif->k5) selected @endif>{{ $i }}</option>
@@ -124,7 +124,7 @@
                         <input type="text" class="form-control" id="create_alternatif" name="alternatif" required>
                     </div>
                     <div class="mb-3">
-                        <label for="create_k1" class="form-label">K1</label>
+                        <label for="create_k1" class="form-label">K1: Seberapa baik produk ini dalam mendeteksi dan mencegah serangan keamanan yang kompleks dan baru?</label>
                         <select class="form-select" id="create_k1" name="k1" required>
                             @for ($i = 1; $i <= 5; $i++)
                                 <option value="{{ $i }}">{{ $i }}</option>
@@ -132,7 +132,7 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="create_k2" class="form-label">K2</label>
+                        <label for="create_k2" class="form-label">K2: Seberapa baik produk ini dalam mendeteksi dan mencegah serangan keamanan yang kompleks dan baru?</label>
                         <select class="form-select" id="create_k2" name="k2" required>
                             @for ($i = 1; $i <= 5; $i++)
                                 <option value="{{ $i }}">{{ $i }}</option>
@@ -140,7 +140,7 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="create_k3" class="form-label">K3</label>
+                        <label for="create_k3" class="form-label">K3: Seberapa baik produk ini dalam mendeteksi dan mencegah serangan keamanan yang kompleks dan baru?</label>
                         <select class="form-select" id="create_k3" name="k3" required>
                             @for ($i = 1; $i <= 5; $i++)
                                 <option value="{{ $i }}">{{ $i }}</option>
@@ -148,7 +148,7 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="create_k4" class="form-label">K4</label>
+                        <label for="create_k4" class="form-label">K4: Seberapa baik produk ini dalam mendeteksi dan mencegah serangan keamanan yang kompleks dan baru?</label>
                         <select class="form-select" id="create_k4" name="k4" required>
                             @for ($i = 1; $i <= 5; $i++)
                                 <option value="{{ $i }}">{{ $i }}</option>
@@ -156,7 +156,7 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="create_k5" class="form-label">K5</label>
+                        <label for="create_k5" class="form-label">K5: Seberapa baik produk ini dalam mendeteksi dan mencegah serangan keamanan yang kompleks dan baru?</label>
                         <select class="form-select" id="create_k5" name="k5" required>
                             @for ($i = 1; $i <= 5; $i++)
                                 <option value="{{ $i }}">{{ $i }}</option>
