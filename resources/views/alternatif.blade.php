@@ -32,11 +32,9 @@
                     <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal{{ $alternatif->id_alternatif }}">
                         Edit
                     </button>
-                    <form action="{{ route('alternatif.destroy', $alternatif->id_alternatif) }}" method="POST" style="display:inline;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $alternatif->id_alternatif }}">
+                        Delete
+                    </button>
                 </td>
             </tr>
             <!-- Modal Edit -->
@@ -102,6 +100,26 @@
                     </div>
                 </div>
             </div>
+            <div class="modal fade" id="deleteModal{{ $alternatif->id_alternatif }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $alternatif->id_alternatif }}" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteModalLabel{{ $alternatif->id_alternatif }}">Delete Alternatif</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Apakah kamu yakin ingin menghapus alternatif ini?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <form action="{{ route('alternatif.destroy', $alternatif->id_alternatif) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Hapus</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             @endforeach
         </tbody>
     </table>
